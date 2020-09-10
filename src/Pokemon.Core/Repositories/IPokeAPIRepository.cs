@@ -8,6 +8,6 @@ namespace Pokemon.Core.Repositories
 {
     public interface IPokeAPIRepository
     {
-        Task<PokemonEntity> GetPokemonAPI(string name);
+        Task<PokeApiNet.Pokemon> GetPokemonAPI(string name);
     }
 }

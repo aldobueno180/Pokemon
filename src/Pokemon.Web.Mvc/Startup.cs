@@ -37,6 +37,7 @@ namespace Pokemon.Web.Mvc
             services.AddTransient<IPokemonManager, PokemonManager>();
             services.AddTransient<IPokemonRepository, PokemonRepository>();
             services.AddTransient<IPokeAPIRepository, PokeAPIRepository>();
+            services.AddTransient<IShakespeareWebAppRepository, ShakespeareWebAppRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

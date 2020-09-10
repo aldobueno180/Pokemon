@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
 using Pokemon.Core.Entities;
 using Pokemon.Core.Repositories;
 using RestSharp;
@@ -11,9 +11,9 @@ namespace Pokemon.EntityFrameworkCore.Repositories
 {
     public class PokeAPIRepository : IPokeAPIRepository
     {
-        public async Task<PokemonEntity> GetPokemonAPI(string name)
+        public async Task<PokeApiNet.Pokemon> GetPokemonAPI(string name)
         {
-            var result = new PokemonEntity();
+            PokeApiNet.Pokemon pokemonItem = new PokeApiNet.Pokemon();
             try
             {
                 RestClient client = new RestClient("https://pokeapi.co/api/v2/");
@@ -22,17 +22,18 @@ namespace Pokemon.EntityFrameworkCore.Repositories
                 var response = client.Execute(request);
                 if (response.IsSuccessful)
                 {
-                    JObject json = JObject.Parse(response.Content);
-                    result.Name = name;
-                    result.Description = response.Content;
+                    pokemonItem = JsonConvert.DeserializeObject<PokeApiNet.Pokemon>(response.Content);
+                }
+                else
+                {
+                    throw new Exception("Pokemon not found in PokeApi");
                 }
             }
             catch (Exception ex)
             {
-                result.Name = "none";
-                result.Description = ex.Message;
+                throw new Exception(ex.Message);
             }
-            return result;
+            return pokemonItem;
         }
     }
 }
