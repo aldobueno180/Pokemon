@@ -15,6 +15,9 @@ It is necessary to be installed
 Visual Studio/Visual Studio Code
 .Net Core 3.1
 ```
+Get access to the APIs
+* Shakespeare translator](https://funtranslations.com/api/shakespeare)
+* [PokéAPI](https://pokeapi.co/)
 
 ### Openning project
 
@@ -71,5 +74,5 @@ Git local versioning
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-* [Aspnet Boilerplate/ASP.Net Zero] (https://docs.aspnetzero.com/en/aspnet-core-mvc/latest/Overview-Core#solution-structure-layers)
-* DDD Driven Domain Design
+* [Aspnet Boilerplate/ASP.Net Zero](https://docs.aspnetzero.com/en/aspnet-core-mvc/latest/Overview-Core#solution-structure-layers)
+* [DDD Driven Domain Design](https://www.domainlanguage.com/)
