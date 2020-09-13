@@ -16,9 +16,10 @@ Visual Studio/Visual Studio Code
 .Net Core 3.1
 ```
 
-### Installing
+### Openning project
 
 Open file Pokemon.sln
+
 
 
 ### Coding Multiservices REST API
@@ -34,12 +35,24 @@ Pokemon.Core.Shared (project contains consts, enums and helper classes used both
 Pokemon.EntityFrameworkCore (project contains your DbContext, repository implementations, database migrations and other Entity Framework Core specific concepts.)
 Pokemon.Web.Mvc (project contains the presentation/API layer (Controllers) for backend files)
 ```
+### Build
+```
+dotnet run --project ./src/Pokemon.Web.Mvc/Pokemon.Web.Mvc.csproj
+```
+
+### Test
+The test include unit test for the application service for getting the Pokemon description
+```
+dotnet test
+dotnet test --filter "FullyQualifiedName=Pokemon.Tests.PokemonAppService_Test.GettingPokemonByName"
+```
 
 ## Deployment
 ```
 IIS
-Docker
+Docker (docker file included)
 ```
+
 ## Built With
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - API project framework used
 * [RestSharp v106.11.4](https://restsharp.dev/) - Nuget Package for managing the API calls to PokeApi and Shakespeare Translator
